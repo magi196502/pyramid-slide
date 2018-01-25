@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            {{title}}
+        </title>
+        <script src="{{url_for('static',filename= 'js/pyramid.js')}}" charset="utf-8"></script>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/pyramid.css')}}">
+    </head>
+    <body>
+
+        <h1>Pyramid Slide</h1>
+
+        {% block content  %}
+
+
+        {% endblock %}
+
+    </body>
+
+</html>

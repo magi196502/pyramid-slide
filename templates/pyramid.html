@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <br>
+
+    <p>When you say</p>
+    <p><strong>Draw a pyramid</strong></p>
+    <p>I say:</p>
+
+    <br>
+
+    <label>How high?</label>
+    <input type="text" id="height"/>
+    <br><br>
+    <button onclick="determineHeightAndThenDrawPyramid()">Draw a pyramid</button>
+
+    <br><br>
+
+    <div id="pyramid"></div>
+
+{% endblock %}
