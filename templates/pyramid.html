@@ -10,7 +10,27 @@
     <p>I say:</p>
 
     <br>
+    <form>
+        <table>
+            <tr>
+                <td>
 
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>        
+    </form>
+    <label>Brick Symbol</label>
+    <select onchange="handleSelect()"> 
+        <option value="#">#</option>
+        <option value="@">@</option>
+        <option value="X"> X </option>
+        <option value="$">$</option>
+    </select>
+    <input type="range" id="row_height" min="1" max="20" oninput="setHeight()">                    
+    <label></label>
+    <br>
     <label>How high?</label>
     <input type="text" id="height"/>
     <br><br>

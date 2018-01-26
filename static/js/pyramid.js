@@ -46,15 +46,19 @@ function determineHeightAndThenDrawPyramid() {
          // figure out number of bricks and spaces
          var numBricks = row + 2;
          var numSpaces = height - row - 1;
+         var rowSpaces = "";
 
          // build up a string for this row
          var rowStr = "";
          for (var i = 0; i < numSpaces; i++) {
              rowStr += ".";
+//           rowSpaces = rowSpaces + " ";
          }
          for (var i = 0; i < numBricks; i++) {
              rowStr += "#";
          }
+
+//       rowStr = rowSpaces + rowStr;
 
         // create a text element with the string of characters
         textElem = document.createTextNode(rowStr);
@@ -74,4 +78,43 @@ function determineHeightAndThenDrawPyramid() {
         document.getElementById("pyramid").innerHTML = "";
         
     }
+
 }
+
+function setHeight(){
+    //alert("setHeight triggered")
+    var pyramid_height = document.getElementById("row_height");
+    var row_info = document.getElementById("height");
+
+    row_info.value = pyramid_height.value;
+
+    determineHeightAndThenDrawPyramid();
+
+    /*
+    pyramid_height.oninput = function(){
+        alert(this.value);
+        row_info.innerHTML = this.value;
+    }
+    */
+
+}
+    
+
+function handleSelect(){
+    alert("Select option done");
+}
+
+/*
+  var select = document.querySelector("select");
+  var output = document.querySelector("#output");
+  select.addEventListener("change", function() {
+    var number = 0;
+    for (var i = 0; i < select.options.length; i++) {
+      var option = select.options[i];
+      if (option.selected)
+        number += Number(option.value);
+    }
+    output.textContent = number;
+  }
+
+*/
