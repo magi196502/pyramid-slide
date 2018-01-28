@@ -3,41 +3,29 @@
 
 {% block content %}
 
-    <br>
+<script onload="drawOnload();" ></script>
+<br>
 
-    <p>When you say</p>
-    <p><strong>Draw a pyramid</strong></p>
-    <p>I say:</p>
-
-    <br>
-    <form>
-        <table>
-            <tr>
-                <td>
-
-                </td>
-                <td>
-                </td>
-            </tr>
-        </table>        
-    </form>
     <label>Brick Symbol</label>
-    <select onchange="handleSelect()"> 
-        <option value="#">#</option>
-        <option value="@">@</option>
-        <option value="X"> X </option>
-        <option value="$">$</option>
-    </select>
-    <input type="range" id="row_height" min="1" max="20" oninput="setHeight()">                    
-    <label></label>
-    <br>
-    <label>How high?</label>
-    <input type="text" id="height"/>
-    <br><br>
-    <button onclick="determineHeightAndThenDrawPyramid()">Draw a pyramid</button>
 
-    <br><br>
+    <div class="container">
+        <div class="jumbotron">
+            <p>
 
-    <div id="pyramid"></div>
+                <select id="BrickType" onchange="handleSelected()">
+                    <option value="#">#</option>
+                    <option value="@">@</option>
+                    <option value="X">X</option>
+                    <option value="$">$</option>
+                </select> 
 
+                <input type="range" id="row_height" min="1" max="20"  oninput="setHeight()">    
+                <span id="height">8</span>                
+            </p>
+                    
+        </div>
+    </div>
+    <div class="container">
+        <div id="pyramid" class="jumbotron" well-lg class="pyramid"></div>
+    </div>
 {% endblock %}

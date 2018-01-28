@@ -2,42 +2,38 @@
 /**
  * determineHeightAndThenDrawPyramid
  *
- * Determines the current value that the user has typed in the 'How high?' text-box,
+ * Determines the height of the pyramid and draws the pyramid
  * and then draws a pyramid with that height.
  */
 function determineHeightAndThenDrawPyramid() {
 
-    // just so we know we're here
-    console.log("someone invoked the determineHeightAndThenDrawPyramid function!");
+    // Get the height from the dom input slider element    
+    var heightStr = document.getElementById("height").innerHTML;
 
-    // TODO 3
-    // figure out the height the user typed (replace the "5" below)
-    //heightStr = "5";
-    var heightStr = document.getElementById("height").value;
 
     // here we convert the string to an int
-    height = parseInt(heightStr);
+    var heightVal = parseInt(heightStr);
 
-    // TODO 2
+    // Get the brick type from the dom select element
+    var brick = document.getElementById("BrickType").value;
+
+    // Validate the brick. If empty set to the defautt "#"
+    if ((brick == "") || (brick == null) || (brick == undefined)) {
+        brick = "#";
+    }
+
     // draw the pyramid with the given height
-    drawPyramid(height);
-}
-
-
-// TODO 1
-// hook up the button's click event to our determineHeightAndThenDrawPyramid function
-// Done
-
+    drawPyramid(heightVal, brick);
+} 
 
 /**
  * drawPyramid
  *
- * Renders, in the HTML document, a Mario pyramid of the specified height
+ * Renders, in the HTML document, the pyramid of the specified height
  */
- function drawPyramid(height) {
+ function drawPyramid(height, brickType ) {
 
-     // TODO 4
-     // before drawing, clear the old content
+    // before drawing, clear the old content
      clearPyramid();
 
     // for each row....
@@ -49,26 +45,34 @@ function determineHeightAndThenDrawPyramid() {
          var rowSpaces = "";
 
          // build up a string for this row
-         var rowStr = "";
+         var rowStr = "&nbsp";
          for (var i = 0; i < numSpaces; i++) {
-             rowStr += ".";
-//           rowSpaces = rowSpaces + " ";
+            var spaceChar = "&nbsp";                        // &nbsp HTML encoding for a space " "
+            rowStr += spaceChar;
          }
+
+         rowStr += "&nbsp";
+
          for (var i = 0; i < numBricks; i++) {
-             rowStr += "#";
-         }
+            
+            // Set the default which is "#"
+            if ((brickType == null) || (brickType == undefined) || (brickType == "")) {
+                rowStr += "#";
+            } else {
+                // Draw the pyramid with the selecte brick type
+                rowStr += brickType;                
+            }
+            
+        }
 
-//       rowStr = rowSpaces + rowStr;
-
-        // create a text element with the string of characters
-        textElem = document.createTextNode(rowStr);
-
-        // create a <p> element with the text inside
-        rowElem = document.createElement("p");
-        rowElem.appendChild(textElem);
 
         // insert the paragraph as a child of the container <div>
+        rowElem = document.createElement("p");
+        rowElem.innerHTML = rowStr;
         document.getElementById("pyramid").appendChild(rowElem);
+        
+        }
+
     }
 
     // Clear the html element containing the old pyramid
@@ -76,45 +80,32 @@ function determineHeightAndThenDrawPyramid() {
 
         // Clear the pyramid element by clearing the innerHTML property
         document.getElementById("pyramid").innerHTML = "";
-        
-    }
+            
+    }    
 
-}
 
+// Set the pyramid height    
 function setHeight(){
-    //alert("setHeight triggered")
+    // Get the information form the slider input object
     var pyramid_height = document.getElementById("row_height");
-    var row_info = document.getElementById("height");
 
-    row_info.value = pyramid_height.value;
+    // Get the span object
+    var rowVal = document.getElementById("height");
 
+    // Set the height value of the pyramid to display in
+    // the spn object
+    rowVal.innerHTML = pyramid_height.value;
+
+    // Call the funtion to draw the pyramid
     determineHeightAndThenDrawPyramid();
-
-    /*
-    pyramid_height.oninput = function(){
-        alert(this.value);
-        row_info.innerHTML = this.value;
-    }
-    */
-
 }
     
 
-function handleSelect(){
-    alert("Select option done");
+// Handle the events from the select element
+function handleSelected(){
+
+    // Call the draw pyramid function whenever the select
+    // option is changed.
+    determineHeightAndThenDrawPyramid();
+
 }
-
-/*
-  var select = document.querySelector("select");
-  var output = document.querySelector("#output");
-  select.addEventListener("change", function() {
-    var number = 0;
-    for (var i = 0; i < select.options.length; i++) {
-      var option = select.options[i];
-      if (option.selected)
-        number += Number(option.value);
-    }
-    output.textContent = number;
-  }
-
-*/
