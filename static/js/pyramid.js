@@ -42,25 +42,22 @@ function determineHeightAndThenDrawPyramid() {
          // figure out number of bricks and spaces
          var numBricks = row + 2;
          var numSpaces = height - row - 1;
-         var rowSpaces = "";
-         var bricks = "";
+
          // build up a string for this row
          var rowStr = "";
 
          rowSpaces = ""; 
          for (var i = 0; i < numSpaces; i++) {
             var spaceChar = "&nbsp";                        // &nbsp HTML encoding for a space " "
-            rowSpaces += spaceChar;
+            rowStr += spaceChar;
          }
 
 
          for (var i = 0; i < numBricks; i++) {
 
-            bricks += brickType;                
+            rowStr += brickType;                
 
         }
-
-        rowStr = rowSpaces + bricks;
 
 
         // insert the paragraph as a child of the container <div>

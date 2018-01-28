@@ -7,41 +7,36 @@
 <br>
 
 
-<table>
-    <tr class="top-row">
-        <td>
-            <label for="BrickType">Brick Symbol
-                <select id="BrickType" onchange="handleSelected()">
-                    <option value="#">#</option>
+    <!-- Table created to add better formatting -->
+    <table>
+        <tr class="top-row">
+            <th>
+                <label for="BrickType" class="brick-type-label">Brick Symbol
+                <select id="BrickType" onchange="handleSelected()" >
+                    <option value="#"selected>#</option>
                     <option value="@">@</option>
                     <option value="X">X</option>
                     <option value="$">$</option>
                 </select> 
-            </label>
-        </td>
-        <td>
-            <label for="row_height" class="how-high">How high?</label>
-        </td>
-        <td>
-            <input type="range" id="row_height" min="1" max="20"  oninput="setHeight()">    
-        </td>
-        <td>
-            <span id="height">8</span>      
-        </td>
-        
-    </tr>
+            </label>  
+            </th>
+            <th>          
+            <label for="row_height" class="how-high">How high?
+                <input type="range" id="row_height" class="slider" min="1" max="20"  oninput="setHeight()">    
+                <span id="height" class="span-for-height">8</span>  
+            </label>    
+            </th>
+            
+        </tr>
 
-    <tr>
-        <td colspan="3">
+    <tr  clas="pyramid-row">
+        <td colspan="2">
             <div id="pyramid" class="pyramid"></div>            
         </td>
     </tr>
 
 
 </table>
-    <div class="top-section">
-
-    </div>
 
 
 {% endblock %}
