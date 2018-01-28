@@ -1,9 +1,16 @@
+
+
 #pyramid {
-    line-height: 0;
-    font-size: 30px;
+    
+/*  line-height: 0; */
+/*    font-size: 15px; */
+    white-space: pre;
 }
 
-body {
-    font-family: "Courier New", monospace;
-    text-align: center;
+div {
+    white-space: pre;
+    text-align: right;
+    
 }
+
+

@@ -6,26 +6,42 @@
 <script onload="drawOnload();" ></script>
 <br>
 
-    <label>Brick Symbol</label>
 
-    <div class="container">
-        <div class="jumbotron">
-            <p>
-
+<table>
+    <tr class="top-row">
+        <td>
+            <label for="BrickType">Brick Symbol
                 <select id="BrickType" onchange="handleSelected()">
                     <option value="#">#</option>
                     <option value="@">@</option>
                     <option value="X">X</option>
                     <option value="$">$</option>
                 </select> 
+            </label>
+        </td>
+        <td>
+            <label for="row_height" class="how-high">How high?</label>
+        </td>
+        <td>
+            <input type="range" id="row_height" min="1" max="20"  oninput="setHeight()">    
+        </td>
+        <td>
+            <span id="height">8</span>      
+        </td>
+        
+    </tr>
 
-                <input type="range" id="row_height" min="1" max="20"  oninput="setHeight()">    
-                <span id="height">8</span>                
-            </p>
-                    
-        </div>
+    <tr>
+        <td colspan="3">
+            <div id="pyramid" class="pyramid"></div>            
+        </td>
+    </tr>
+
+
+</table>
+    <div class="top-section">
+
     </div>
-    <div class="container">
-        <div id="pyramid" class="jumbotron" well-lg class="pyramid"></div>
-    </div>
+
+
 {% endblock %}

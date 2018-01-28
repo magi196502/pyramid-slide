@@ -43,27 +43,24 @@ function determineHeightAndThenDrawPyramid() {
          var numBricks = row + 2;
          var numSpaces = height - row - 1;
          var rowSpaces = "";
-
+         var bricks = "";
          // build up a string for this row
-         var rowStr = "&nbsp";
+         var rowStr = "";
+
+         rowSpaces = ""; 
          for (var i = 0; i < numSpaces; i++) {
             var spaceChar = "&nbsp";                        // &nbsp HTML encoding for a space " "
-            rowStr += spaceChar;
+            rowSpaces += spaceChar;
          }
 
-         rowStr += "&nbsp";
 
          for (var i = 0; i < numBricks; i++) {
-            
-            // Set the default which is "#"
-            if ((brickType == null) || (brickType == undefined) || (brickType == "")) {
-                rowStr += "#";
-            } else {
-                // Draw the pyramid with the selecte brick type
-                rowStr += brickType;                
-            }
-            
+
+            bricks += brickType;                
+
         }
+
+        rowStr = rowSpaces + bricks;
 
 
         // insert the paragraph as a child of the container <div>
